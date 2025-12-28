@@ -24,12 +24,15 @@ load_dotenv()
 # set PostgreSQL connection string in standard format:
 
 def get_db_engine():
-    """Create and return SQLAlchemy engine (SQLite - no installation needed)."""
-    # Using SQLite instead of PostgreSQL for simplicity
-    db_path = "weather_data.db"
-    connection_string = f"sqlite:///{db_path}"
+    """Create and return SQLAlchemy engine for PostgreSQL."""
+    db_host = os.getenv("DB_HOST", "localhost")
+    db_port = os.getenv("DB_PORT", "5432")
+    db_name = os.getenv("DB_NAME", "weather_db")
+    db_user = os.getenv("DB_USER", "postgres")
+    db_password = os.getenv("DB_PASSWORD", "postgres")
+    
+    connection_string = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
     engine = create_engine(connection_string)
-    print(f"✓ Using SQLite database: {db_path}")
     return engine
 
 # Initialise table schema
