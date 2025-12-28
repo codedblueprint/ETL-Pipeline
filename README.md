@@ -47,6 +47,11 @@ Load (PostgreSQL + SQLAlchemy)
 - **Scheduling**: Optional periodic execution using APScheduler
 - **Query Utilities**: SQL scripts and Python helpers for data validation
 
+### Scheduling (Conceptual)
+
+In a production setting, this pipeline could be scheduled to run hourly or daily
+using cron, APScheduler, or a workflow orchestrator such as Airflow.
+
 ---
 
 ## Tech Stack
