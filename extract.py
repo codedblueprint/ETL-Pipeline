@@ -5,6 +5,7 @@ import pandas as pd
 # fetches hourly temperature and precipitation for London
 # from the Open-Meteo API 
 # converted it as a pandas DataFrame.
+# ETL - EXTRACT (Extract, Transform, Load) pattern
 
 def extract_weather_data():
     url = (
